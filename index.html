@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弗雷德里克·肖邦 | 钢琴诗人</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Serif+SC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">Chopin</a>
+            <button class="nav-toggle" id="navToggle" aria-label="菜单">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" data-i18n="nav-home">首页</a></li>
+                <li><a href="#bio" data-i18n="nav-bio">生平</a></li>
+                <li><a href="#timeline" data-i18n="nav-timeline">时间线</a></li>
+                <li><a href="#works" data-i18n="nav-works">作品</a></li>
+                <li><a href="#style" data-i18n="nav-style">音乐风格</a></li>
+                <li><a href="#quotes" data-i18n="nav-quotes">名言</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 英雄区 -->
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle fade-up">钢琴诗人 · 浪漫主义音乐巨匠</p>
+            <h1 class="hero-title fade-up delay-1">弗雷德里克·肖邦</h1>
+            <p class="hero-name-en fade-up delay-2">Frédéric Chopin</p>
+            <p class="hero-dates fade-up delay-3">1810 — 1849</p>
+            <div class="hero-divider fade-up delay-3"></div>
+            <p class="hero-quote fade-up delay-4">"巴赫是位天文学家，发现了最美丽的星星。<br>贝多芬挑战了宇宙。而我只想表达人的心灵。"</p>
+        </div>
+        <!-- 钢琴键动画 -->
+        <div class="piano-keys" id="pianoKeys">
+            <div class="key white" data-note="C"></div>
+            <div class="key black" data-note="C#"></div>
+            <div class="key white" data-note="D"></div>
+            <div class="key black" data-note="D#"></div>
+            <div class="key white" data-note="E"></div>
+            <div class="key white" data-note="F"></div>
+            <div class="key black" data-note="F#"></div>
+            <div class="key white" data-note="G"></div>
+            <div class="key black" data-note="G#"></div>
+            <div class="key white" data-note="A"></div>
+            <div class="key black" data-note="A#"></div>
+            <div class="key white" data-note="B"></div>
+            <div class="key white" data-note="C2"></div>
+            <div class="key black" data-note="C#2"></div>
+            <div class="key white" data-note="D2"></div>
+            <div class="key black" data-note="D#2"></div>
+            <div class="key white" data-note="E2"></div>
+            <div class="key white" data-note="F2"></div>
+            <div class="key black" data-note="F#2"></div>
+            <div class="key white" data-note="G2"></div>
+            <div class="key black" data-note="G#2"></div>
+            <div class="key white" data-note="A2"></div>
+            <div class="key black" data-note="A#2"></div>
+            <div class="key white" data-note="B2"></div>
+        </div>
+        <a href="#bio" class="scroll-down" aria-label="向下滚动">
+            <span class="scroll-arrow"></span>
+            <span class="scroll-arrow delay"></span>
+        </a>
+    </section>
+
+    <!-- 生平简介 -->
+    <section class="section bio" id="bio">
+        <div class="container">
+            <h2 class="section-title reveal">钢琴诗人</h2>
+            <div class="section-divider reveal"></div>
+            <div class="bio-grid">
+                <div class="bio-image reveal">
+                    <div class="bio-portrait">
+                        <div class="portrait-frame">
+                            <div class="portrait-placeholder">
+                                <svg viewBox="0 0 200 240" class="portrait-svg">
+                                    <defs>
+                                        <radialGradient id="portraitGrad" cx="50%" cy="30%">
+                                            <stop offset="0%" stop-color="#d4a574"/>
+                                            <stop offset="100%" stop-color="#2a1f14"/>
+                                        </radialGradient>
+                                    </defs>
+                                    <ellipse cx="100" cy="85" rx="35" ry="45" fill="url(#portraitGrad)" opacity="0.9"/>
+                                    <ellipse cx="100" cy="170" rx="55" ry="75" fill="url(#portraitGrad)" opacity="0.7"/>
+                                    <text x="100" y="100" text-anchor="middle" fill="#f5e6d3" font-size="40" font-family="serif" opacity="0.9">♫</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bio-text reveal">
+                    <p class="bio-intro">弗雷德里克·弗朗索瓦·肖邦（Frédéric François Chopin），1810年3月1日出生于波兰华沙附近的Żelazowa Wola，是浪漫主义时期最伟大的钢琴作曲家之一。</p>
+                    <p>肖邦被誉为<b>"钢琴诗人"</b>，他的音乐创作几乎全部献给钢琴独奏。他将钢琴的表现力推向了前所未有的高度，以诗意般的旋律、丰富的和声色彩与细腻的情感变化，征服了全世界的听众。</p>
+                    <p>他7岁开始作曲，8岁便登台演出。1830年波兰起义失败后，21岁的肖邦被迫流亡法国巴黎，此后再也未能回到故土。他将对祖国的思念与热爱，化作了那些充满波兰民族精神的<b>玛祖卡</b>与<b>波罗乃兹</b>舞曲。</p>
+                    <p>1839年，他与法国女作家乔治·桑相恋，这段长达9年的恋情是他创作最丰盛的时期。1849年10月17日，肖邦因肺结核在巴黎逝世，年仅39岁。他的心脏按照遗愿被运回华沙，安放在圣十字教堂。</p>
+                    <div class="bio-stats">
+                        <div class="stat"><span class="stat-num" data-count="39">0</span><span class="stat-label">短暂年华</span></div>
+                        <div class="stat"><span class="stat-num" data-count="230">0</span><span class="stat-label">传世之作</span></div>
+                        <div class="stat"><span class="stat-num" data-count="21">0</span><span class="stat-label">钢琴协奏曲</span></div>
+                        <div class="stat"><span class="stat-num" data-count="59">0</span><span class="stat-label">玛祖卡舞曲</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 时间线 -->
+    <section class="section timeline" id="timeline">
+        <div class="container">
+            <h2 class="section-title reveal">生命乐章</h2>
+            <div class="section-divider reveal"></div>
+            <div class="timeline-wrapper">
+                <div class="timeline-line"></div>
+                <div class="timeline-items" id="timelineItems">
+                    <div class="timeline-item reveal left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">1810</span>
+                            <h3>诞生</h3>
+                            <p>3月1日出生于波兰华沙附近的Żelazowa Wola。父亲是法国移民，母亲是波兰人。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">1817</span>
+                            <h3>音乐神童</h3>
+                            <p>7岁开始作曲，创作了第一首作品《G小调波罗乃兹》。音乐天赋令世人惊叹。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">1829</span>
+                            <h3>初露锋芒</h3>
+                            <p>在维也纳举办两场钢琴音乐会大获成功，舒曼在《大众音乐报》上赞叹："先生们，脱帽致敬吧，一位天才！"</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">1830</span>
+                            <h3>告别祖国</h3>
+                            <p>波兰起义失败，肖邦被迫离开祖国。在离开时带走了一捧波兰的泥土，终其一生带在身边。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">1831</span>
+                            <h3>定居巴黎</h3>
+                            <p>来到巴黎，迅速融入艺术圈，与李斯特、柏辽兹、门德尔松、海涅、德拉克洛瓦等成为好友。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">1838</span>
+                            <h3>爱情与创作</h3>
+                            <p>与法国女作家乔治·桑相恋。在马略卡岛的冬天创作了著名的《雨滴》前奏曲等大量杰作。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">1847</span>
+                            <h3>恋情终结</h3>
+                            <p>与乔治·桑分手，此后健康状况急剧恶化，创作也趋近尾声。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">1849</span>
+                            <h3>永恒的休止符</h3>
+                            <p>10月17日在巴黎逝世，年仅39岁。葬礼上演奏了他自己的《降B小调第二钢琴奏鸣曲》中的《葬礼进行曲》。心脏被运回华沙。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 著名作品 -->
+    <section class="section works" id="works">
+        <div class="container">
+            <h2 class="section-title reveal">传世之作</h2>
+            <div class="section-divider reveal"></div>
+            <div class="works-grid" id="worksGrid">
+                <div class="work-card reveal" data-work="nocturne-op9-no2">
+                    <div class="work-icon">🌙</div>
+                    <h3>降E大调夜曲 Op.9 No.2</h3>
+                    <p class="work-type">夜曲</p>
+                    <p class="work-desc">肖邦最著名的夜曲之一，旋律优美如歌，像月光下的一首诗。回旋曲式中，主题以丰富装饰音反复呈现。</p>
+                    <button class="work-listen" data-audio="nocturne-op9-no2">♫ 试听片段</button>
+                </div>
+                <div class="work-card reveal" data-work="etude-op10-no3">
+                    <div class="work-icon">🎹</div>
+                    <h3>E大调练习曲 Op.10 No.3</h3>
+                    <p class="work-type">练习曲 — "离别"</p>
+                    <p class="work-desc">肖邦本人曾感叹："在我的一生中，再没有比这更美的旋律了。"这首练习曲将技术训练与情感深度完美融合。</p>
+                    <button class="work-listen" data-audio="etude-op10-no3">♫ 试听片段</button>
+                </div>
+                <div class="work-card reveal" data-work="polonaise-op53">
+                    <div class="work-icon">🏰</div>
+                    <h3>降A大调波罗乃兹 Op.53</h3>
+                    <p class="work-type">波罗乃兹 — "英雄"</p>
+                    <p class="work-desc">气势磅礴的英雄舞曲，以激昂的旋律描绘波兰骑兵冲锋陷阵的壮阔场景，被誉为肖邦爱国主义最强烈的表达。</p>
+                    <button class="work-listen" data-audio="polonaise-op53">♫ 试听片段</button>
+                </div>
+                <div class="work-card reveal" data-work="ballade-no1">
+                    <div class="work-icon">📖</div>
+                    <h3>G小调第一叙事曲 Op.23</h3>
+                    <p class="work-type">叙事曲</p>
+                    <p class="work-desc">灵感来自波兰诗人密茨凯维奇的史诗。从宁静到暴烈，讲述了一个完整的英雄故事，是浪漫主义钢琴文学的巅峰。</p>
+                    <button class="work-listen" data-audio="ballade-no1">♫ 试听片段</button>
+                </div>
+                <div class="work-card reveal" data-work="waltz-op64-no1">
+                    <div class="work-icon">💫</div>
+                    <h3>降D大调圆舞曲 Op.64 No.1</h3>
+                    <p class="work-type">圆舞曲 — "小狗"</p>
+                    <p class="work-desc">灵感源于乔治·桑的小狗追自己尾巴转圈的场景。轻盈灵动，充满幽默与活力，是最广为人知的钢琴小品之一。</p>
+                    <button class="work-listen" data-audio="waltz-op64-no1">♫ 试听片段</button>
+                </div>
+                <div class="work-card reveal" data-work="prelude-op28-no15">
+                    <div class="work-icon">🌧</div>
+                    <h3>降D大调前奏曲 Op.28 No.15</h3>
+                    <p class="work-type">前奏曲 — "雨滴"</p>
+                    <p class="work-desc">创作于马略卡岛的雨夜，左手重复的降A音符如同雨滴敲窗，中间段则如暴风雨般激烈，是印象主义音乐的先声。</p>
+                    <button class="work-listen" data-audio="prelude-op28-no15">♫ 试听片段</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 音乐风格 -->
+    <section class="section style" id="style">
+        <div class="container">
+            <h2 class="section-title reveal">音乐风格</h2>
+            <div class="section-divider reveal"></div>
+            <div class="style-grid">
+                <div class="style-card reveal">
+                    <div class="style-icon">🎭</div>
+                    <h3>Rubato · 弹性速度</h3>
+                    <p>肖邦独创性地使用"弹性速度"（Tempo Rubato），让旋律在节拍之间自由呼吸——右手旋律可以稍快或稍慢，而左手伴奏严格保持节奏。这种"一手自由，一手严格"的技法赋予音乐独特的诗意流动感。</p>
+                </div>
+                <div class="style-card reveal">
+                    <div class="style-icon">🇵🇱</div>
+                    <h3>波兰民族之魂</h3>
+                    <p>肖邦将波兰民间舞曲<b>玛祖卡</b>（Mazurka）和<b>波罗乃兹</b>（Polonaise）提升为高雅艺术形式。59首玛祖卡囊括了波兰民间音乐的各种节奏与情感，从欢快到忧伤，是波兰精神的音乐肖像。</p>
+                </div>
+                <div class="style-card reveal">
+                    <div class="style-icon">🎨</div>
+                    <h3>和声色彩的革命</h3>
+                    <p>肖邦大胆使用半音阶、远关系转调和模糊调性，突破了古典主义的和声框架。德彪西称他为"最伟大的和声大师之一"，他的和声语言直接预示了印象主义音乐的到来。</p>
+                </div>
+                <div class="style-card reveal">
+                    <div class="style-icon">✨</div>
+                    <h3>装饰音的艺术</h3>
+                    <p>肖邦的装饰音不是简单的点缀，而是旋律有机的组成部分。他受到意大利歌剧<b>美声唱法</b>（Bel Canto）的深刻影响，将人声的华丽装饰与呼吸感融入钢琴，使钢琴真正"歌唱"起来。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 名言 -->
+    <section class="section quotes" id="quotes">
+        <div class="container">
+            <h2 class="section-title reveal">肖邦语录</h2>
+            <div class="section-divider reveal"></div>
+            <div class="quotes-slider" id="quotesSlider">
+                <div class="quote-card active">
+                    <div class="quote-mark">"</div>
+                    <p class="quote-text">朴素是最终极的成就。当你弹过了一千个音符之后，真正的艺术在于如何回到朴素。</p>
+                    <p class="quote-author">—— 弗雷德里克·肖邦</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-mark">"</div>
+                    <p class="quote-text">没有比隐藏起来的、不被任何人知道的地方更美好的了，除了那些被人爱着的人的心。</p>
+                    <p class="quote-author">—— 弗雷德里克·肖邦</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-mark">"</div>
+                    <p class="quote-text">时间是最好的审查者，而耐心是最卓越的教师。</p>
+                    <p class="quote-author">—— 弗雷德里克·肖邦</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-mark">"</div>
+                    <p class="quote-text">我把我的整个灵魂都倾注到了我所创作的音乐中。</p>
+                    <p class="quote-author">—— 弗雷德里克·肖邦</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-mark">"</div>
+                    <p class="quote-text">如果能回到我的童年，那个我一睁开眼睛就看见音乐的世界，我愿意付出一切。</p>
+                    <p class="quote-author">—— 弗雷德里克·肖邦</p>
+                </div>
+            </div>
+            <div class="quotes-dots" id="quotesDots"></div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-divider"></div>
+            <p class="footer-name">弗雷德里克·肖邦</p>
+            <p class="footer-sub">Frédéric Chopin · 1810 - 1849</p>
+            <p class="footer-quote">"他的音乐是花丛中的一尊大炮。" —— 罗伯特·舒曼</p>
+            <p class="footer-copy">© 2024 向钢琴诗人致敬</p>
+        </div>
+    </footer>
+
+    <!-- 音乐播放器模态框 -->
+    <div class="modal-overlay" id="musicModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-player">
+                <div class="player-visual">
+                    <div class="equalizer" id="equalizer">
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+                <h3 class="player-title" id="playerTitle"></h3>
+                <p class="player-note" id="playerNote">肖邦的音乐超越了时代——闭上眼睛，用心聆听。</p>
+                <div class="player-progress">
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span class="progress-time" id="progressTime">0:00 / 0:30</span>
+                </div>
+                <button class="player-btn" id="playerPlay">▶ 播放</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
