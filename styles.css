@@ -1000,6 +1000,13 @@ body {
     box-shadow: 0 5px 20px rgba(201,169,110,0.35);
 }
 
+.player-btn:disabled {
+    background: rgba(201,169,110,0.3);
+    color: rgba(13,10,7,0.5);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
 /* ---------- 响应式 ---------- */
 @media (max-width: 900px) {
     .bio-grid {

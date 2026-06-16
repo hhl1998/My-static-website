@@ -255,37 +255,113 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==================== 音乐播放器模态框 ====================
-    let playerState = {
-        isPlaying: false,
-        currentWork: null,
-        timer: null,
-        progress: 0,
-        duration: 30 // 模拟30秒
+    // ==================== 音乐播放器模态框（真实音频版） ====================
+    const audioPlayer = document.getElementById('audioPlayer');
+
+    /* ============================================================
+       音频来源配置
+       你可以替换为自己的音频链接（支持 mp3 / ogg / wav 等格式）
+       ------------------------------------------------------------
+       推荐免费古典音乐资源：
+       1. Musopen (https://musopen.org) —— 注册后可免费下载
+       2. Internet Archive (https://archive.org) —— 搜索 Chopin
+       3. Wikimedia Commons —— 搜索文件名下载 OGG
+       4. 将 mp3 文件放到本网站同目录下，用相对路径如 "./nocturne.mp3"
+       ============================================================ */
+    const audioSources = {
+        'nocturne-op9-no2': {
+            title: '降E大调夜曲 Op.9 No.2',
+            // 替换为你的音频链接，示例：
+            // url: 'https://example.com/chopin-nocturne-op9-no2.mp3',
+            // url: './audio/nocturne-op9-no2.mp3',
+            url: 'https://dev.fwv8.com/Nocturne_Op_9_No_2.mp3'
+        },
+        'etude-op10-no3': {
+            title: 'E大调练习曲 Op.10 No.3 "离别"',
+            url: 'https://dev.fwv8.com/Nocturne_Op_9_No_2.mp3'
+        },
+        'polonaise-op53': {
+            title: '降A大调波罗乃兹 Op.53 "英雄"',
+            url: 'https://dev.fwv8.com/Nocturne_Op_9_No_2.mp3'
+        },
+        'ballade-no1': {
+            title: 'G小调第一叙事曲 Op.23',
+            url: 'https://dev.fwv8.com/Nocturne_Op_9_No_2.mp3'
+        },
+        'waltz-op64-no1': {
+            title: '降D大调圆舞曲 Op.64 No.1 "小狗"',
+            url: 'https://dev.fwv8.com/Nocturne_Op_9_No_2.mp3'
+        },
+        'prelude-op28-no15': {
+            title: '降D大调前奏曲 Op.28 No.15 "雨滴"',
+            url: 'https://dev.fwv8.com/Nocturne_Op_9_No_2.mp3'
+        }
     };
 
-    // 模拟音频数据 - 每个作品对应一个简短的模拟
-    const workNames = {
-        'nocturne-op9-no2': '降E大调夜曲 Op.9 No.2',
-        'etude-op10-no3': 'E大调练习曲 Op.10 No.3 "离别"',
-        'polonaise-op53': '降A大调波罗乃兹 Op.53 "英雄"',
-        'ballade-no1': 'G小调第一叙事曲 Op.23',
-        'waltz-op64-no1': '降D大调圆舞曲 Op.64 No.1 "小狗"',
-        'prelude-op28-no15': '降D大调前奏曲 Op.28 No.15 "雨滴"'
-    };
+    // 格式化时间
+    function formatTime(seconds) {
+        const m = Math.floor(seconds / 60);
+        const s = Math.floor(seconds % 60);
+        return `${m}:${s.toString().padStart(2, '0')}`;
+    }
+
+    // 更新进度条
+    function updateProgress() {
+        if (!audioPlayer.duration) return;
+        const pct = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+        progressFill.style.width = pct + '%';
+        progressTime.textContent = `${formatTime(audioPlayer.currentTime)} / ${formatTime(audioPlayer.duration)}`;
+    }
+
+    // 音频加载完成
+    function onAudioLoaded() {
+        progressTime.textContent = `0:00 / ${formatTime(audioPlayer.duration)}`;
+        progressFill.style.width = '0%';
+        playerPlay.textContent = '▶ 播放';
+        playerPlay.disabled = false;
+    }
+
+    // 音频播放结束
+    function onAudioEnded() {
+        audioPlayer.currentTime = 0;
+        progressFill.style.width = '0%';
+        progressTime.textContent = `0:00 / ${formatTime(audioPlayer.duration)}`;
+        playerPlay.textContent = '▶ 重播';
+    }
+
+    // 音频错误
+    function onAudioError() {
+        playerTitle.textContent += ' ⚠️';
+        playerNote.textContent = '音频加载失败，请检查链接是否有效。你也可以将 mp3 文件放到网站同目录下，使用相对路径。';
+        playerPlay.textContent = '▶ 播放';
+        playerPlay.disabled = true;
+    }
+
+    // 绑定音频事件
+    audioPlayer.addEventListener('timeupdate', updateProgress);
+    audioPlayer.addEventListener('loadedmetadata', onAudioLoaded);
+    audioPlayer.addEventListener('ended', onAudioEnded);
+    audioPlayer.addEventListener('error', onAudioError);
 
     function openMusicModal(workId) {
-        playerState.currentWork = workId;
-        playerState.progress = 0;
-        playerState.isPlaying = false;
-        progressFill.style.width = '0%';
-        progressTime.textContent = '0:00 / 0:30';
-        playerPlay.textContent = '▶ 播放';
-        playerTitle.textContent = workNames[workId] || '肖邦作品';
+        const work = audioSources[workId];
+        if (!work) return;
 
-        if (playerState.timer) {
-            clearInterval(playerState.timer);
-            playerState.timer = null;
+        playerTitle.textContent = work.title || '肖邦作品';
+        playerNote.textContent = '肖邦的音乐超越了时代——闭上眼睛，用心聆听。';
+        playerPlay.textContent = '▶ 播放';
+        playerPlay.disabled = false;
+        progressFill.style.width = '0%';
+        progressTime.textContent = '0:00 / 0:00';
+
+        // 切换音频源
+        if (work.url) {
+            audioPlayer.src = work.url;
+            audioPlayer.load();
+        } else {
+            // 没有配置音频链接
+            playerNote.textContent = '⚠️ 尚未配置音频链接。请编辑 script.js 中的 audioSources 对象，填入音频 URL 或本地路径。';
+            playerPlay.disabled = true;
         }
 
         musicModal.classList.add('active');
@@ -293,53 +369,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function closeMusicModal() {
-        if (playerState.timer) {
-            clearInterval(playerState.timer);
-            playerState.timer = null;
-        }
-        playerState.isPlaying = false;
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
         musicModal.classList.remove('active');
         document.body.style.overflow = '';
     }
 
     function togglePlay() {
-        if (playerState.isPlaying) {
-            pausePlayback();
+        if (!audioPlayer.src) return;
+
+        if (audioPlayer.paused) {
+            audioPlayer.play()
+                .then(() => playerPlay.textContent = '⏸ 暂停')
+                .catch(() => {
+                    playerNote.textContent = '播放失败，请检查音频链接。';
+                });
         } else {
-            startPlayback();
-        }
-    }
-
-    function startPlayback() {
-        playerState.isPlaying = true;
-        playerPlay.textContent = '⏸ 暂停';
-
-        playerState.timer = setInterval(() => {
-            playerState.progress += 0.1;
-            if (playerState.progress >= playerState.duration) {
-                playerState.progress = playerState.duration;
-                pausePlayback();
-                playerState.progress = 0;
-                progressFill.style.width = '0%';
-                progressTime.textContent = '0:00 / 0:30';
-                playerPlay.textContent = '▶ 重播';
-                return;
-            }
-            const pct = (playerState.progress / playerState.duration) * 100;
-            progressFill.style.width = pct + '%';
-            const current = Math.floor(playerState.progress);
-            const secs = current % 60;
-            const mins = Math.floor(current / 60);
-            progressTime.textContent = `${mins}:${secs.toString().padStart(2, '0')} / 0:30`;
-        }, 100);
-    }
-
-    function pausePlayback() {
-        playerState.isPlaying = false;
-        playerPlay.textContent = '▶ 播放';
-        if (playerState.timer) {
-            clearInterval(playerState.timer);
-            playerState.timer = null;
+            audioPlayer.pause();
+            playerPlay.textContent = '▶ 播放';
         }
     }
 
@@ -361,20 +408,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // 播放/暂停
     playerPlay.addEventListener('click', togglePlay);
 
-    // 进度条点击
+    // 进度条拖动
     const progressBar = document.getElementById('progressBar');
     progressBar.addEventListener('click', (e) => {
+        if (!audioPlayer.duration) return;
         const rect = progressBar.getBoundingClientRect();
         const pct = (e.clientX - rect.left) / rect.width;
-        playerState.progress = pct * playerState.duration;
-        progressFill.style.width = (pct * 100) + '%';
-        const current = Math.floor(playerState.progress);
-        const secs = current % 60;
-        const mins = Math.floor(current / 60);
-        progressTime.textContent = `${mins}:${secs.toString().padStart(2, '0')} / 0:30`;
-        if (!playerState.isPlaying) {
-            startPlayback();
-        }
+        audioPlayer.currentTime = pct * audioPlayer.duration;
     });
 
     // 键盘快捷键
