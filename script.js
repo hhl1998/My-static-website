@@ -274,27 +274,27 @@ document.addEventListener('DOMContentLoaded', () => {
             // 替换为你的音频链接，示例：
             // url: 'https://example.com/chopin-nocturne-op9-no2.mp3',
             // url: './audio/nocturne-op9-no2.mp3',
-            url: 'https://dev.fwv8.com/Nocturne_Op_9_No_2.mp3'
+            url: 'https://dev.fwv8.com/music/Nocturne_Op_9_No_2.mp3'
         },
         'etude-op10-no3': {
             title: 'E大调练习曲 Op.10 No.3 "离别"',
-            url: 'https://dev.fwv8.com/Nocturne_Op_9_No_2.mp3'
+            url: 'https://imslp.eu/files/imglnks/euimg/4/4a/IMSLP571479-PMLP01969-Chopin_F,_Etude_op_10,_n%C2%B0_3_en_mi_majeur_(Samson_Fran%C3%A7ois)_EMI_1959.mp3'
         },
         'polonaise-op53': {
             title: '降A大调波罗乃兹 Op.53 "英雄"',
-            url: 'https://dev.fwv8.com/Nocturne_Op_9_No_2.mp3'
+            url: 'https://dev.fwv8.com/music/Polonaise%20in%20A-flat%20major%2C%20Op.53%20(Chopin%2C%20Fr%C3%A9d%C3%A9ric).mp3'
         },
         'ballade-no1': {
             title: 'G小调第一叙事曲 Op.23',
-            url: 'https://dev.fwv8.com/Nocturne_Op_9_No_2.mp3'
+            url: 'https://dev.fwv8.com/music/Ballade%20No.1%2C%20Op.23%20(Chopin%2C%20Fr%C3%A9d%C3%A9ric).mp3'
         },
         'waltz-op64-no1': {
             title: '降D大调圆舞曲 Op.64 No.1 "小狗"',
-            url: 'https://dev.fwv8.com/Nocturne_Op_9_No_2.mp3'
+            url: "https://dev.fwv8.com/music/Waltzes%2C%20Op.64%20-%201.%20Molto%20vivace%20(D%E2%99%AD%C2%A0major)%2C%20'Minute%20Waltz'(Chopin%2C%20Fr%C3%A9d%C3%A9ric)%20.mp3"
         },
         'prelude-op28-no15': {
             title: '降D大调前奏曲 Op.28 No.15 "雨滴"',
-            url: 'https://dev.fwv8.com/Nocturne_Op_9_No_2.mp3'
+            url: "https://dev.fwv8.com/music/Preludes%2C%20Op.28%2015.%20Prelude%20(D%E2%99%AD%C2%A0major)%2C%20'Raindrop'(Chopin%2C%20Fr%C3%A9d%C3%A9ric)%20.mp3"
         }
     };
 
